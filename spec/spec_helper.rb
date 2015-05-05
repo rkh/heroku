@@ -168,16 +168,6 @@ def stub_pgbackups
   end
 end
 
-def stub_rendezvous
-  @stubbed_rendezvous ||= begin
-    stubbed_rendezvous = nil
-    any_instance_of(Heroku::Client::Rendezvous) do |rendezvous|
-      stubbed_rendezvous = stub(rendezvous)
-    end
-    stubbed_rendezvous
-  end
-end
-
 def stub_organizations
   @stub_organizations ||= begin
     stub_organizations = nil
