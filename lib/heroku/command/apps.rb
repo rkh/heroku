@@ -236,6 +236,10 @@ class Heroku::Command::Apps < Heroku::Command::Base
       "locked" => options[:locked]
     }
 
+    if kernel = ENV['CUSTOM_HEROKU_KERNEL'] 
+      params["kernel"] = kernel
+    end
+
     info = if org
       org_api.post_app(params, org).body
     else
