@@ -15,6 +15,8 @@ require "fakefs/safe"
 require 'tmpdir'
 require "webmock/rspec"
 
+ENV['HEROKU_SKIP_ANALYTICS'] = '1'
+
 include WebMock::API
 
 WebMock::HttpLibAdapters::ExconAdapter.disable!
